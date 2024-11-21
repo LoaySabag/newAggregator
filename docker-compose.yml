@@ -1,0 +1,102 @@
+version: "3.8"
+
+services:
+  user-service:
+    build: ./services/user-service
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/usersdb
+    networks:
+      - app-network
+    depends_on:
+      - mongodb
+    volumes:
+      - ./dapr/components:/components
+
+  user-dapr:
+    image: "daprio/daprd:latest"
+    command:
+      [
+        "./daprd",
+        "-app-id",
+        "user-service",
+        "-app-port",
+        "3000",
+        "-components-path",
+        "/components",
+        "-config",
+        "/dapr/config.yaml",
+      ]
+    volumes:
+      - ./dapr/components:/components
+    networks:
+      - app-network
+    depends_on:
+      - user-service
+    expose:
+      - "3500"
+
+  news-service:
+    build: ./services/news-service
+    ports:
+      - "3001:3001"
+    environment:
+      - NEWSDATA_API_KEY=your_newsdata_api_key
+      - EMAIL_USER=your_email@example.com
+      - EMAIL_PASS=your_email_password
+    networks:
+      - app-network
+    volumes:
+      - ./dapr/components:/components
+    depends_on:
+      - rabbitmq
+
+  news-dapr:
+    image: "daprio/daprd:latest"
+    command:
+      [
+        "./daprd",
+        "-app-id",
+        "news-service",
+        "-app-port",
+        "3001",
+        "-components-path",
+        "/components",
+        "-config",
+        "/dapr/config.yaml",
+      ]
+    volumes:
+      - ./dapr/components:/components
+    networks:
+      - app-network
+    depends_on:
+      - news-service
+    expose:
+      - "3501"
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+    volumes:
+      - mongo-data:/data/db
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  mongo-data:
