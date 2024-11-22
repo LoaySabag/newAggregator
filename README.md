@@ -6,7 +6,7 @@ The News Aggregator is a web-based platform built using React and microservices 
 ---
 
 
-💻## **Technologies Used:**
+💻 **Technologies Used:**
 - **Frontend**:
 React: A JavaScript library for building user interfaces.
 Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
@@ -24,7 +24,7 @@ Redis: Used for caching frequently accessed data to improve performance.
 
 ---
 
-🚀## **Getting Started:**
+🚀 **Getting Started:**
 To get this project up and running locally, follow these steps:
 Prerequisites
 Before starting, make sure you have the following installed:
