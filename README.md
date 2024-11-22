@@ -1,12 +1,12 @@
 # News Aggregator
 
-📚 Project Description:
+📚Project Description:
 The News Aggregator is a web-based platform built using React and microservices architecture. The application gathers and displays the latest technology news, allowing users to customize their feeds based on preferences. It also includes a feature for summarizing articles and sharing updates via multiple communication channels such as email or SMS. This project leverages modern web technologies to deliver a fast and scalable news platform.
 
 ---
 
 
-💻 **Technologies Used:**
+## Technologies Used:💻
 - **Frontend**:
 React: A JavaScript library for building user interfaces.
 Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
@@ -24,7 +24,7 @@ Redis: Used for caching frequently accessed data to improve performance.
 
 ---
 
-🚀 **Getting Started:**
+## Getting Started:🚀
 To get this project up and running locally, follow these steps:
 Prerequisites
 Before starting, make sure you have the following installed:
@@ -70,7 +70,7 @@ npm start
 5.	Visit http://localhost:3000 in your browser to access the application.
 
 
-🏛️## ** Architecture**
+## Architecture:🏛️
 This application follows a microservices architecture for better scalability and modularity. The backend is split into multiple services that communicate with each other via RabbitMQ.
 ### Components 
 - **Frontend:**
@@ -89,7 +89,7 @@ This architecture ensures each service can be scaled independently, allowing for
 
 ---
 
-🧑‍💻## **Usage:**
+ ## Usage:🧑‍💻
 
 Once you have the application running locally, here’s how you can interact with it:
 User Interface
