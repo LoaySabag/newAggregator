@@ -33,26 +33,40 @@ Before starting, make sure you have the following installed:
 - **Docker**
 Steps to Run Locally
 1.	Clone the repository:
+```bash
 git clone https://github.com/LoaySabag/newAggregator.git
 cd newAggregator
+```
 2.	Install dependencies:
 Install frontend dependencies:
+```bash
 cd frontend
 npm install
+```
 Install backend dependencies:
+```bash
 cd ../backend
 npm install
+```
 3.	Start Docker for microservices:
 In the root of the project, run:
+```bash
 docker-compose up
+```
 This will set up and run the microservices using Docker.
 4.	Start the frontend and backend:
-•	Frontend:
+-	**Frontend**:
+```bash
 cd frontend
+```
+```bash 
 npm start
-•	Backend:
+```
+-	**Backend**:
+```bash
 cd backend
 npm start
+```
 5.	Visit http://localhost:3000 in your browser to access the application.
 
 
